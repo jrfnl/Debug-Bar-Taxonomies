@@ -1,0 +1,60 @@
+/* CSS for plugin: Debug Bar Taxonomies */
+#debug-menu-target-Debug_Bar_Taxonomies h3 {
+	font-family: georgia, times, serif;
+	font-size: 22px;
+	margin-top: 1.2em;
+	clear: both;
+}
+
+#debug-menu-target-Debug_Bar_Taxonomies table,
+#debug-menu-target-Debug_Bar_Taxonomies th,
+#debug-menu-target-Debug_Bar_Taxonomies td {
+	border: 0px none;
+}
+#debug-menu-target-Debug_Bar_Taxonomies table {
+	table-layout: auto;
+}
+#debug-menu-target-Debug_Bar_Taxonomies table.debug-bar-taxonomies {
+	width: 100%;
+	border-collapse: collapse;
+	cell-padding: 1em;
+	clear: both;
+    line-height: 1.5;
+	font-size: 12px;
+}
+
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies thead th,
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies tfoot th {
+    padding: 0.7em 5px;
+    border-bottom: 1px solid #ccc;
+}
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies th,
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies td {
+	min-width: 60px;
+}
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies th {
+    font-weight: bold;
+	padding: 2px 1em 2px 5px;
+    vertical-align: top;
+}
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies td {
+	padding: 2px 5px;
+	vertical-align: top;
+}
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies tr:nth-child(2n+1) {
+	background-color: #E8E8E8;
+}
+
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies-caps thead th,
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies-caps tfoot th,
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies-caps td {
+	text-align: center;
+}
+
+#debug-menu-target-Debug_Bar_Taxonomies ul.debug-bar-taxonomies {
+	list-style-type: square !important;
+	padding-left: 20px !important;
+}
+#debug-menu-target-Debug_Bar_Taxonomies .debug-bar-taxonomies-table-end {
+	text-align: right;
+}
