@@ -40,10 +40,21 @@ if ( ! function_exists( 'dbtax_has_parent_plugin' ) ) {
 	 * Check for parent plugin.
 	 */
 	function dbtax_has_parent_plugin() {
-		if ( is_admin() && ( ! class_exists( 'Debug_Bar' ) && current_user_can( 'activate_plugins' ) ) ) {
+		$file = plugin_basename( __FILE__ );
+
+		if ( is_admin() && ( ! class_exists( 'Debug_Bar' ) && current_user_can( 'activate_plugins' ) ) && is_plugin_active( $file ) ) {
 			add_action( 'admin_notices', create_function( null, 'echo \'<div class="error"><p>\' . sprintf( __( \'Activation failed: Debug Bar must be activated to use the <strong>Debug Bar Taxonomies</strong> Plugin. %sVisit your plugins page to activate.\', \'debug-bar-taxonomies\' ), \'<a href="\' . admin_url( \'plugins.php#debug-bar\' ) . \'">\' ) . \'</a></p></div>\';' ) );
 
-			deactivate_plugins( plugin_basename( __FILE__ ) );
+			deactivate_plugins( $file, false, is_network_admin() );
+
+			// Add to recently active plugins list.
+			if ( ! is_network_admin() ) {
+				update_option( 'recently_activated', array( $file => time() ) + (array) get_option( 'recently_activated' ) );
+			} else {
+				update_site_option( 'recently_activated', array( $file => time() ) + (array) get_site_option( 'recently_activated' ) );
+			}
+
+			// Prevent trying again on page reload.
 			if ( isset( $_GET['activate'] ) ) {
 				unset( $_GET['activate'] );
 			}
