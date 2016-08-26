@@ -117,8 +117,7 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 			$lang_path = dirname( plugin_basename( __FILE__ ) ) . '/languages';
 			if ( false === strpos( __FILE__, basename( WPMU_PLUGIN_DIR ) ) ) {
 				load_plugin_textdomain( $domain, false, $lang_path );
-			}
-			else {
+			} else {
 				load_muplugin_textdomain( $domain, $lang_path );
 			}
 		}
@@ -180,8 +179,8 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 				$this->render_custom_properties_table();
 				$this->render_capabilities_table();
 				$this->render_labels_table();
-			}
-			else {
+
+			} else {
 				echo '<p>', esc_html__( 'No taxonomies found.', 'debug-bar-taxonomies' ), '</p>';
 			}
 
@@ -212,14 +211,14 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 
 						if ( is_object( $value ) && in_array( $key, array( 'cap', 'labels' ), true ) ) {
 							$this->collect_caps_labels( $key, $name, $value );
-						}
-						else {
+
+						} else {
 							// Standard properties.
 							if ( property_exists( $taxonomies['category'], $key ) ) {
 								$this->properties[ $key ][ $name ] = $value;
-							}
-							// Custom properties.
-							else {
+
+							} else {
+								// Custom properties.
 								$this->custom_prop[ $key ][ $name ] = $value;
 							}
 						}
@@ -246,8 +245,8 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 				foreach ( $object_vars as $k => $v ) {
 					if ( 'cap' === $key ) {
 						$this->caps[ $v ][ $name ] = $v;
-					}
-					elseif ( 'labels' === $key ) {
+
+					} elseif ( 'labels' === $key ) {
 						$this->labels[ $k ][ $name ] = $v;
 					}
 				}
@@ -373,13 +372,11 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 					if ( isset( $value[ $name ] ) ) {
 						if ( defined( 'Debug_Bar_Pretty_Output::VERSION' ) ) {
 							echo Debug_Bar_Pretty_Output::get_output( $value[ $name ], '', true, '', true ); // WPCS: XSS ok.
-						}
-						else {
+						} else {
 							// An old version of the pretty output class was loaded.
 							Debug_Bar_Pretty_Output::output( $value[ $name ], '', true, '', true );
 						}
-					}
-					else {
+					} else {
 						echo '&nbsp;';
 					}
 
