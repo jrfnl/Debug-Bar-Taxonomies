@@ -48,10 +48,14 @@ if ( ! function_exists( 'dbtax_has_parent_plugin' ) ) {
 			deactivate_plugins( $file, false, is_network_admin() );
 
 			// Add to recently active plugins list.
+			$insert = array(
+				$file => time(),
+			);
+
 			if ( ! is_network_admin() ) {
-				update_option( 'recently_activated', ( array( $file => time() ) + (array) get_option( 'recently_activated' ) ) );
+				update_option( 'recently_activated', ( $insert + (array) get_option( 'recently_activated' ) ) );
 			} else {
-				update_site_option( 'recently_activated', ( array( $file => time() ) + (array) get_site_option( 'recently_activated' ) ) );
+				update_site_option( 'recently_activated', ( $insert + (array) get_site_option( 'recently_activated' ) ) );
 			}
 
 			// Prevent trying again on page reload.
