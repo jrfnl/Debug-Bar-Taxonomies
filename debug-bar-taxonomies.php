@@ -5,22 +5,22 @@
  * @package     WordPress\Plugins\Debug Bar Taxonomies
  * @author      Juliette Reinders Folmer <wpplugins_nospam@adviesenzo.nl>
  * @link        https://github.com/jrfnl/Debug-Bar-Taxonomies
- * @version     1.0
+ * @version     1.1
  *
- * @copyright   2016 Juliette Reinders Folmer
+ * @copyright   2016-2017 Juliette Reinders Folmer
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
  * @wordpress-plugin
  * Plugin Name: Debug Bar Taxonomies
  * Plugin URI:  https://wordpress.org/plugins/debug-bar-taxonomies/
  * Description: Debug Bar Taxonomies adds a new panel to the Debug Bar that displays detailed information about the registered taxonomies for your site. Requires "Debug Bar" plugin.
- * Version:     1.0
+ * Version:     1.1
  * Author:      Juliette Reinders Folmer
  * Author URI:  http://www.adviesenzo.nl/
  * Depends:     Debug Bar
  * Text Domain: debug-bar-taxonomies
  * Domain Path: /languages
- * Copyright:   2016 Juliette Reinders Folmer
+ * Copyright:   2016-2017 Juliette Reinders Folmer
  */
 
 // Avoid direct calls to this file.

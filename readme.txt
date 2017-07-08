@@ -2,9 +2,9 @@
 Contributors: jrf
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=995SSNDTCVBJG
 Tags: debugbar, debug-bar, Debug Bar, Taxonomies, Debug Bar Taxonomies, Custom Taxonomy, Custom Taxonomies
-Requires at least: 3.1
-Tested up to: 4.5
-Stable tag: 1.0
+Requires at least: 3.4
+Tested up to: 4.8
+Stable tag: 1.1
 Depends: Debug Bar
 License: GPLv2
 
@@ -47,8 +47,14 @@ Have you read what it says in the beautifully red bar at the top of your plugins
 
 == Changelog ==
 
-= Trunk =
+= 1.1 (2017-07-10) =
+* Improved usability of the admin notice in case the Debug Bar plugin is not active.
+* The plugin will now add itself to the list of "recently active" plugins if it self-deactivates bcause the Debug Bar plugin is not active.
 * Defer to just in time loading of translations for WP > 4.5.
+* Updated the pretty print dependency to v1.7.0.
+* Minor housekeeping.
+* The minimum supported WP version is now 3.4, in line with the 0.9 version of the Debug Bar.
+* Tested & found compatible WP 4.8.
 
 = 1.0 (2016-04-27) =
 * Initial release
