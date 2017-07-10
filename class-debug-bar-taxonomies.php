@@ -6,9 +6,9 @@
  * @author      Juliette Reinders Folmer <wpplugins_nospam@adviesenzo.nl>
  * @link        https://github.com/jrfnl/Debug-Bar-Taxonomies
  * @since       1.0
- * @version     1.0
+ * @version     1.1
  *
- * @copyright   2016 Juliette Reinders Folmer
+ * @copyright   2016-2017 Juliette Reinders Folmer
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  */
 
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 	 */
 	class Debug_Bar_Taxonomies extends Debug_Bar_Panel {
 
-		const STYLES_VERSION = '1.0';
+		const STYLES_VERSION = '1.1';
 
 		const NAME = 'debug-bar-taxonomies';
 
