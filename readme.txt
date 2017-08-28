@@ -6,6 +6,7 @@ Requires at least: 3.4
 Tested up to: 4.8
 Stable tag: 1.1
 Depends: Debug Bar
+Requires PHP: 5.2.4
 License: GPLv2
 
 Debug Bar Taxonomies adds a new panel to the Debug Bar with detailed information about registered taxonomies. Requires "Debug Bar" plugin.
