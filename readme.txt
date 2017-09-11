@@ -48,7 +48,9 @@ Have you read what it says in the beautifully red bar at the top of your plugins
 
 == Changelog ==
 
-= 1.1 (2017-07-10) =
+= 1.1 =
+_Release date: 2017-07-10_
+
 * Improved usability of the admin notice in case the Debug Bar plugin is not active.
 * The plugin will now add itself to the list of "recently active" plugins if it self-deactivates bcause the Debug Bar plugin is not active.
 * Defer to just in time loading of translations for WP > 4.5.
@@ -57,7 +59,9 @@ Have you read what it says in the beautifully red bar at the top of your plugins
 * The minimum supported WP version is now 3.4, in line with the 0.9 version of the Debug Bar.
 * Tested & found compatible WP 4.8.
 
-= 1.0 (2016-04-27) =
+= 1.0 =
+_Release date: 2016-04-27_
+
 * Initial release
 
 
