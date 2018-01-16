@@ -28,6 +28,11 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 	 */
 	class Debug_Bar_Taxonomies extends Debug_Bar_Panel {
 
+		/**
+		 * Plugin version nr for use with enqueuing scripts and styles.
+		 *
+		 * @var string
+		 */
 		const STYLES_VERSION = '1.1';
 
 
@@ -104,7 +109,12 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 		 */
 		public function enqueue_scripts() {
 			$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min' );
-			wp_enqueue_style( Debug_Bar_Taxonomies_Init::NAME, plugins_url( 'css/' . Debug_Bar_Taxonomies_Init::NAME . $suffix . '.css', __FILE__ ), array( 'debug-bar' ), self::STYLES_VERSION );
+			wp_enqueue_style(
+				Debug_Bar_Taxonomies_Init::NAME,
+				plugins_url( 'css/' . Debug_Bar_Taxonomies_Init::NAME . $suffix . '.css', __FILE__ ),
+				array( 'debug-bar' ),
+				self::STYLES_VERSION
+			);
 		}
 
 
@@ -139,7 +149,7 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 
 
 			echo '
-		<h2><span>', esc_html__( 'Total Taxonomies:', 'debug-bar-taxonomies' ), '</span>', absint( $count ), '</h2>';
+		<h2><span>', esc_html__( 'Total Taxonomies:', 'debug-bar-taxonomies' ), '</span>', (int) $count, '</h2>';
 
 			if ( is_array( $wp_taxonomies ) && $count > 0 ) {
 
@@ -148,7 +158,7 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 				if ( ! empty( $this->custom_tax ) ) {
 					$this->count_ct = count( $this->custom_tax );
 					echo '
-		<h2><span>', esc_html__( 'Custom Taxonomies:', 'debug-bar-taxonomies' ), '</span>', absint( $this->count_ct ), '</h2>';
+		<h2><span>', esc_html__( 'Custom Taxonomies:', 'debug-bar-taxonomies' ), '</span>', (int) $this->count_ct, '</h2>';
 				}
 
 				$this->render_standard_properties_table();
