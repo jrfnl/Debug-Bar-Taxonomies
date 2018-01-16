@@ -11,36 +11,32 @@ dist: trusty
 language: php
 
 # Declare versions of PHP to use. Use one decimal max.
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.2
+  - nightly
+
 matrix:
   fast_finish: true
 
   include:
-    # aliased to 5.2.17
-    - php: '5.2'
-      dist: precise
-    # aliased to 5.3.29
+    - php: '7.1'
+      env: SNIFF=1
     - php: '5.3'
       dist: precise
-    # aliased to a recent 5.4.x version
-    - php: '5.4'
-    # aliased to a recent 5.5.x version
-    - php: '5.5'
-    # aliased to a recent 5.6.x version
-    - php: '5.6'
-      env: SNIFF=1
-    # aliased to a recent 7.0.x version
-    - php: '7.0'
-    # aliased to a recent 7.1.x version
-    - php: '7.1'
-    # aliased to a recent 7.2.x version
-    - php: '7.2'
-    # bleeding edge
-    - php: 'nightly'
+    - php: '5.2'
+      dist: precise
 
   allow_failures:
     - php: 'nightly'
 
 before_install:
+    # Speed up build time by disabling Xdebug when its not needed.
+    - if [[ $TRAVIS_PHP_VERSION != "nightly" ]]; then phpenv config-rm xdebug.ini; fi
+    # Set up temporary paths.
     - export PHPCS_DIR=/tmp/phpcs
     - export WPCS_DIR=/tmp/wpcs
     - export PHPCOMPAT_DIR=/tmp/phpcompatibility
