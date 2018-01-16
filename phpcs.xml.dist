@@ -66,6 +66,11 @@
 
 	<!-- ##### Exlusions #####-->
 
+	<!-- Renaming the main file would deactivate the plugin. -->
+	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
+		<exclude-pattern>*/debug-bar-taxonomies\.php$</exclude-pattern>
+	</rule>
+
 	<!-- Exclude the 'empty' index files from some documentation checks. -->
 	<rule ref="Squiz.Commenting.FileComment.WrongStyle">
 		<exclude-pattern>*/index.php</exclude-pattern>
