@@ -13,7 +13,7 @@
 	<exclude-pattern>*/inc/debug-bar-pretty-output/*</exclude-pattern>
 
 	<!-- ##### PHP cross-version compatibility ##### -->
-	<config name="testVersion" value="5.2-99.0"/>
+	<config name="testVersion" value="5.2-"/>
 	<rule ref="PHPCompatibility"/>
 
 
@@ -28,6 +28,9 @@
 
 	<!-- ##### Customizations #####-->
 
+	<!-- Set minimum supported WP version for all sniffs which use it. -->
+	<config name="minimum_supported_wp_version" value="3.4"/>
+
 	<!-- Verify that the text_domain is set to the desired text-domain.
 		 Multiple valid text domains can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.WP.I18n">
@@ -40,31 +43,12 @@
 		 Multiple valid prefixes can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="Debug_Bar_Taxonomies,dbtax"/>
-		</properties>
-	</rule>
-
-	<!-- Verify that no WP functions are used which are deprecated or have been removed.
-		 The minimum version set here should be in line with the minimum WP version
-		 supported by the Debug Bar extension. -->
-	<rule ref="WordPress.WP.DeprecatedClasses">
-		<properties>
-			<property name="minimum_supported_version" value="3.4"/>
-		</properties>
-	</rule>
-	<rule ref="WordPress.WP.DeprecatedFunctions">
-		<properties>
-			<property name="minimum_supported_version" value="3.4"/>
-		</properties>
-	</rule>
-	<rule ref="WordPress.WP.DeprecatedParameters">
-		<properties>
-			<property name="minimum_supported_version" value="3.4"/>
+			<property name="prefixes" type="array" value="Debug_Bar_Taxonomies"/>
 		</properties>
 	</rule>
 
 
-	<!-- ##### Exlusions #####-->
+	<!-- ##### Exclusions #####-->
 
 	<!-- Renaming the main file would deactivate the plugin. -->
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
@@ -73,10 +57,10 @@
 
 	<!-- Exclude the 'empty' index files from some documentation checks. -->
 	<rule ref="Squiz.Commenting.FileComment.WrongStyle">
-		<exclude-pattern>*/index.php</exclude-pattern>
+		<exclude-pattern>*/index\.php$</exclude-pattern>
 	</rule>
 	<rule ref="Squiz.Commenting.InlineComment.SpacingAfter">
-		<exclude-pattern>*/index.php</exclude-pattern>
+		<exclude-pattern>*/index\.php$</exclude-pattern>
 	</rule>
 
 </ruleset>
