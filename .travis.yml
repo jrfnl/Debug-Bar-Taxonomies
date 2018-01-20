@@ -35,7 +35,7 @@ matrix:
 
 before_install:
     # Speed up build time by disabling Xdebug when its not needed.
-    - if [[ $TRAVIS_PHP_VERSION != "nightly" ]]; then phpenv config-rm xdebug.ini; fi
+    - phpenv config-rm xdebug.ini || echo 'No xdebug config.'
     # Set up temporary paths.
     - export PHPCS_DIR=/tmp/phpcs
     - export WPCS_DIR=/tmp/wpcs
