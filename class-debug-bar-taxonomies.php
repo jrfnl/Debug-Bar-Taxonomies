@@ -6,9 +6,9 @@
  * @author      Juliette Reinders Folmer <wpplugins_nospam@adviesenzo.nl>
  * @link        https://github.com/jrfnl/Debug-Bar-Taxonomies
  * @since       1.0
- * @version     1.1
+ * @version     2.0.0
  *
- * @copyright   2016-2017 Juliette Reinders Folmer
+ * @copyright   2016-2018 Juliette Reinders Folmer
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  */
 
@@ -28,7 +28,12 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 	 */
 	class Debug_Bar_Taxonomies extends Debug_Bar_Panel {
 
-		const STYLES_VERSION = '1.1';
+		/**
+		 * Plugin version nr for use with enqueuing scripts and styles.
+		 *
+		 * @var string
+		 */
+		const STYLES_VERSION = '2.0.0';
 
 
 		/**
@@ -104,7 +109,12 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 		 */
 		public function enqueue_scripts() {
 			$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min' );
-			wp_enqueue_style( Debug_Bar_Taxonomies_Init::NAME, plugins_url( 'css/' . Debug_Bar_Taxonomies_Init::NAME . $suffix . '.css', __FILE__ ), array( 'debug-bar' ), self::STYLES_VERSION );
+			wp_enqueue_style(
+				Debug_Bar_Taxonomies_Init::NAME,
+				plugins_url( 'css/' . Debug_Bar_Taxonomies_Init::NAME . $suffix . '.css', __FILE__ ),
+				array( 'debug-bar' ),
+				self::STYLES_VERSION
+			);
 		}
 
 
@@ -139,7 +149,7 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 
 
 			echo '
-		<h2><span>', esc_html__( 'Total Taxonomies:', 'debug-bar-taxonomies' ), '</span>', absint( $count ), '</h2>';
+		<h2><span>', esc_html__( 'Total Taxonomies:', 'debug-bar-taxonomies' ), '</span>', (int) $count, '</h2>';
 
 			if ( is_array( $wp_taxonomies ) && $count > 0 ) {
 
@@ -148,7 +158,7 @@ if ( ! class_exists( 'Debug_Bar_Taxonomies' ) && class_exists( 'Debug_Bar_Panel'
 				if ( ! empty( $this->custom_tax ) ) {
 					$this->count_ct = count( $this->custom_tax );
 					echo '
-		<h2><span>', esc_html__( 'Custom Taxonomies:', 'debug-bar-taxonomies' ), '</span>', absint( $this->count_ct ), '</h2>';
+		<h2><span>', esc_html__( 'Custom Taxonomies:', 'debug-bar-taxonomies' ), '</span>', (int) $this->count_ct, '</h2>';
 				}
 
 				$this->render_standard_properties_table();
